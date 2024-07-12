@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Calculater</title>
+</head>
+<body>
+    <section>
+        <div class="head">
+            <h1>CASIO</h1><span>HL -2224F</span>
+            <input type="text" class="display" placeholder="0">
+        </div>
+        <div class="num">
+            <button onclick="clears()" class="clear">CL</button>
+            <button class="del" onclick="deletes()">DEL</button>
+            <button onclick="inputs('%')" class="opretar">%</button>
+            <button onclick="inputs('/')" class="opretar">/</button>
+
+            <button onclick="inputs('7')">7</button>
+            <button onclick="inputs('8')">8</button>
+            <button onclick="inputs('9')">9</button>
+            <button onclick="inputs('*')" class="opretar">*</button>
+
+            <button onclick="inputs('4')">4</button>
+            <button onclick="inputs('5')">5</button>
+            <button onclick="inputs('6')">6</button>
+            <button onclick="inputs('-')" class="opretar">-</button>
+
+            <button onclick="inputs('1')">1</button>
+            <button onclick="inputs('2')">2</button>
+            <button onclick="inputs('3')">3</button>
+            <button onclick="inputs('+')" class="opretar">+</button>
+
+            <button onclick="inputs('.')" class="opretar">.</button>
+            <button onclick="inputs('0')" >0</button>
+            <button class="equal" onclick="calculate()">=</button>
+        </div>
+    </section>
+
+
+    <script>
+        let calsoi =document.querySelector(".display")
+
+        function inputs(kavi){
+            calsoi.value += kavi;
+        }
+        function calculate(){
+            try{
+                calsoi.value = eval(calsoi.value);
+            }
+            catch(err){
+                calsoi.value ="Error"
+            }
+        }
+        function clears(){
+            calsoi.value = "";
+        };
+        function deletes(){
+            calsoi.value = calsoi.value.slice(0,-1);
+        }
+    </script>
+</body>
+</html>
